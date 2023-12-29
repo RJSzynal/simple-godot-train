@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://r8k2no5fdfj"]
+
+[ext_resource type="PackedScene" uid="uid://b3c5cl1aufv0l" path="res://Scenes/TrainVehicle.tscn" id="1"]
+[ext_resource type="Script" path="res://Scripts/TrainEngine.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bj2u1s020xktr" path="res://Demo/Assets/train_engine.png" id="3"]
+
+[node name="TrainEngine" groups=["train_engines"] instance=ExtResource("1")]
+script = ExtResource("2")
+max_force = 1000
+gravity = 9.8
+friction_coefficient = 0.1
+rolling_resistance_coefficient = 0.005
+air_resistance_coefficient = 0.1
+air_density = 1.0
+velocity_multiplier = 1.5
+brake_power = 12
+brake_application_speed = 5
+
+[node name="RailFollower" parent="." index="0" groups=["train_engine_front_wheels"]]
+
+[node name="TextureRect" parent="Body/Node2D2" index="0"]
+texture = ExtResource("3")

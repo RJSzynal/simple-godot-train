@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://7sw0pedvp56y"]
+
+[ext_resource type="PackedScene" uid="uid://b3c5cl1aufv0l" path="res://Scenes/Train/Carriage.tscn" id="1_35r0v"]
+[ext_resource type="Script" path="res://Scripts/Train/Passenger.gd" id="2_h3l41"]
+
+[node name="TrainPassenger" groups=["train_engines"] instance=ExtResource("1_35r0v")]
+script = ExtResource("2_h3l41")

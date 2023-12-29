@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://npqq3emis8fp"]
+
+[ext_resource type="Script" path="res://Scripts/Track/Track.gd" id="1_lefyp"]
+[ext_resource type="Texture2D" uid="uid://de408o2kge2ij" path="res://Demo/Assets/crosstie.png" id="2_pwu6q"]
+[ext_resource type="PackedScene" uid="uid://rtmytihb6tps" path="res://Scenes/Track/Junction.tscn" id="3_3fl08"]
+[ext_resource type="Texture2D" uid="uid://byy06tv4y101x" path="res://Demo/Assets/track.png" id="4_nnpfv"]
+
+[sub_resource type="Curve2D" id="1"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 256, 0)
+}
+point_count = 2
+
+[sub_resource type="ArrayMesh" id="7"]
+_surfaces = [{
+"aabb": AABB(-1.5, -12.5, 0, 3.00001, 25, 0),
+"attribute_data": PackedByteArray(0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0),
+"format": 34360004625,
+"index_count": 6,
+"index_data": PackedByteArray(3, 0, 0, 0, 1, 0, 1, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 192, 63, 0, 0, 72, 65, 0, 0, 0, 0, 0, 0, 192, 191, 0, 0, 72, 65, 101, 0, 0, 0, 0, 0, 192, 191, 0, 0, 72, 193, 0, 0, 0, 0, 0, 0, 192, 63, 0, 0, 72, 193, 0, 0, 0, 0)
+}]
+
+[sub_resource type="MultiMesh" id="6"]
+resource_local_to_scene = true
+instance_count = 26
+mesh = SubResource("7")
+buffer = PackedFloat32Array(1, 0, 0, 5, 0, 1, 0, 0, 1, 0, 0, 15, 0, 1, 0, 0, 1, 0, 0, 25, 0, 1, 0, 0, 1, 0, 0, 35, 0, 1, 0, 0, 1, 0, 0, 45, 0, 1, 0, 0, 1, 0, 0, 55, 0, 1, 0, 0, 1, 0, 0, 65, 0, 1, 0, 0, 1, 0, 0, 75, 0, 1, 0, 0, 1, 0, 0, 85, 0, 1, 0, 0, 1, 0, 0, 95, 0, 1, 0, 0, 1, 0, 0, 105, 0, 1, 0, 0, 1, 0, 0, 115, 0, 1, 0, 0, 1, 0, 0, 125, 0, 1, 0, 0, 1, 0, 0, 135, 0, 1, 0, 0, 1, 0, 0, 145, 0, 1, 0, 0, 1, 0, 0, 155, 0, 1, 0, 0, 1, 0, 0, 165, 0, 1, 0, 0, 1, 0, 0, 175, 0, 1, 0, 0, 1, 0, 0, 185, 0, 1, 0, 0, 1, 0, 0, 195, 0, 1, 0, 0, 1, 0, 0, 205, 0, 1, 0, 0, 1, 0, 0, 215, 0, 1, 0, 0, 1, 0, 0, 225, 0, 1, 0, 0, 1, 0, 0, 235, 0, 1, 0, 0, 1, 0, 0, 245, 0, 1, 0, 0, 1, 0, 0, 255, 0, 1, 0, 0)
+
+[node name="Track" type="Path2D"]
+curve = SubResource("1")
+script = ExtResource("1_lefyp")
+
+[node name="Crosstie" type="MeshInstance2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(-8, -16)
+mesh = SubResource("7")
+texture = ExtResource("2_pwu6q")
+
+[node name="MultiMeshInstance2D" type="MultiMeshInstance2D" parent="."]
+z_index = 1
+multimesh = SubResource("6")
+texture = ExtResource("2_pwu6q")
+
+[node name="HeadPoint" type="PathFollow2D" parent="."]
+z_index = 3
+z_as_relative = false
+loop = false
+
+[node name="TrackJunction" parent="HeadPoint" instance=ExtResource("3_3fl08")]
+parent = NodePath("../..")
+side = "head"
+
+[node name="TailPoint" type="PathFollow2D" parent="."]
+z_index = 3
+z_as_relative = false
+position = Vector2(256, 0)
+progress = 256.0
+loop = false
+
+[node name="TrackJunction" parent="TailPoint" instance=ExtResource("3_3fl08")]
+parent = NodePath("../..")
+side = "tail"
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = 2
+points = PackedVector2Array(0, 0, 2.875, 0, 6.32813, 0, 11, 0, 13.7637, 0, 16.7969, 0, 20.0879, 0, 23.625, 0, 27.3965, 0, 31.3906, 0, 35.5957, 0, 40, 0, 44.5918, 0, 49.3594, 0, 54.291, 0, 56.8147, 0, 59.375, 0, 61.9705, 0, 64.5996, 0, 67.261, 0, 69.9531, 0, 72.6746, 0, 75.4238, 0, 78.1995, 0, 81, 0, 83.824, 0, 86.6699, 0, 89.5364, 0, 92.4219, 0, 95.325, 0, 98.2441, 0, 101.178, 0, 104.125, 0, 107.084, 0, 110.053, 0, 113.031, 0, 116.016, 0, 119.007, 0, 122.002, 0, 125, 0, 128, 0, 131, 0, 133.998, 0, 136.993, 0, 139.984, 0, 142.969, 0, 145.947, 0, 148.916, 0, 151.875, 0, 154.822, 0, 157.756, 0, 160.675, 0, 163.578, 0, 166.464, 0, 169.33, 0, 172.176, 0, 175, 0, 177.801, 0, 180.576, 0, 183.325, 0, 186.047, 0, 188.739, 0, 191.4, 0, 194.03, 0, 196.625, 0, 199.185, 0, 201.709, 0, 206.641, 0, 211.408, 0, 216, 0, 220.404, 0, 224.609, 0, 228.604, 0, 232.375, 0, 235.912, 0, 239.203, 0, 242.236, 0, 245, 0, 249.672, 0, 253.125, 0, 256, 0)
+width = 20.0
+texture = ExtResource("4_nnpfv")
+texture_mode = 1

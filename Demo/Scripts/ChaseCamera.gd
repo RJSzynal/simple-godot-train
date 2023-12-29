@@ -1,9 +1,9 @@
 extends Camera2D
 
-export var max_zoom = 0.1
-export var min_zoom = 1.5
-export var zoom_step = 0.25
-export var zoom_speed = 3
+@export var max_zoom = 0.1
+@export var min_zoom = 1.5
+@export var zoom_step = 0.25
+@export var zoom_speed = 3
 
 var desired_zoom = zoom.x
 
@@ -17,7 +17,7 @@ func _input(event):
 		_update_desired_zoom()
 	elif Input.is_action_pressed("pan") && event is InputEventMouseMotion:
 		_update_pan(event)
-		
+
 func _update_desired_zoom():
 	if Input.get_axis("zoom_in", "zoom_out") > 0:
 		desired_zoom = clamp(desired_zoom * (1 + zoom_step), max_zoom, min_zoom)

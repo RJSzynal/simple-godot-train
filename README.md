@@ -33,7 +33,7 @@ When a train wheel reaches the head or tail of a section of track it emits a `at
 The train engine ([Scenes/TrainEngine.tscn](Scenes/TrainEngine.tscn)) is another train vehicle that applies power to its front wheel to move it. This front wheel pulls the engine's back wheel, which in turn follows the front wheel of the next following car, and so on.
 
 ## The Process
-When the level scene loads, the track junctions use their `area_entered` signal to detect overlapping junctions with other tracks. Tracks are connected by linking the `wheel_at_head` or `wheel_at_tail` of one track segment to the correct `enter_from_head` or `enter_from_tail` of another track (and vice versa.) 
+When the level scene loads, the track junctions use their `area_entered` signal to detect overlapping junctions with other tracks. Tracks are connected by linking the `wheel_at_head` or `wheel_at_tail` of one track segment to the correct `enter_from_head` or `enter_from_tail` of another track (and vice versa.)
 
 For switches the `wheel_at_tail` and `enter_from_tail` are replaced with `wheel_at_right` or `wheel_at_left` and `enter_from_right` or `enter_from_left`.
 

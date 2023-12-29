@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfrngr27okyxf"]
+
+[ext_resource type="Script" path="res://Scripts/Train/Bogie.gd" id="1_ylagu"]
+[ext_resource type="Texture2D" uid="uid://b8ewqfcuxoq72" path="res://Demo/Assets/train_wheels.png" id="2_trq4k"]
+
+[node name="TrainWheel" type="PathFollow2D" groups=["train_bogies"]]
+z_index = 5
+loop = false
+script = ExtResource("1_ylagu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.57079
+texture = ExtResource("2_trq4k")

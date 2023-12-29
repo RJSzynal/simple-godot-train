@@ -1,20 +1,24 @@
 extends Node
 
-export var car_count = 10
+@export var car_count:int = 10
+@onready var chase_camera = $ChaseCamera
+const train_vehicle_scene:PackedScene = preload("res://Scenes/Train/Vehicle.tscn")
+const CarriageTypes = preload("res://Scripts/Enums.gd").CarriageTypes
+var train
 
-onready var train_vehicle_reference = load("res://Scenes/TrainVehicle.tscn")
-onready var engine = $TrainEngine
-	
-func _setup_train():
-	engine.connect("train_info", $TestWorld, "update_train_info")
-	engine.add_to_track($Tracks/Track, 700)
-	
-	var last_car = engine
-	for index in range(car_count):
-		var car = train_vehicle_reference.instance()
-		add_child(car)
-		last_car.set_follower_car(car)
-		last_car = car
+func _ready():
+	var train_layout = [CarriageTypes.ENGINE]
+	for i in range(car_count):
+		train_layout.append(CarriageTypes.PASSENGER)
 
-func _on_Timer_timeout():
-	_setup_train()
+	train = train_vehicle_scene.instantiate()
+	train.initialise(
+		'Train0',
+		$Tracks/Track,
+		train_layout,
+		700,
+	)
+	add_child(train)
+	train.connect("train_info", Callable($HUD, "update_train_info"))
+	remove_child(chase_camera)
+	train.all_cars[0].add_child(chase_camera)
