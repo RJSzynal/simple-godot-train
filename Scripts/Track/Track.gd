@@ -16,7 +16,6 @@ var switches = {}
 var primary_tracks = {}
 @onready var _crosstie_mesh_instance = $Crosstie
 @onready var _crosstie_multimesh = $MultiMeshInstance2D
-const switch_scene: PackedScene = preload("res://Scenes/Track/Switch2.tscn")
 
 
 func _ready():

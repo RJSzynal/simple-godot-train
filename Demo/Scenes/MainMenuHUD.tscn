@@ -107,6 +107,14 @@ offset_right = 249.0
 offset_bottom = 128.0
 text = "Track 6"
 
+[node name="ButtonQuit" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 153.5
+offset_top = 146.5
+offset_right = 217.5
+offset_bottom = 167.5
+text = "Quit"
+
 [node name="Title" type="Label" parent="."]
 offset_left = -8.0
 offset_top = 20.0
@@ -119,9 +127,10 @@ theme_override_fonts/font = SubResource("14")
 text = "2D Train Sim Demo"
 
 [node name="Footer" type="Label" parent="."]
-offset_top = 284.0
-offset_right = 511.0
-offset_bottom = 302.0
+offset_left = -3.0
+offset_top = 322.5
+offset_right = 508.0
+offset_bottom = 341.5
 theme = ExtResource("1_7yjh2")
 theme_override_colors/font_color = Color(0.670588, 0.670588, 0.670588, 1)
 theme_override_fonts/font = SubResource("15")
@@ -133,3 +142,4 @@ text = "Moonbench Games 2023"
 [connection signal="pressed" from="Control/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="Control/Button5" to="." method="_on_button_5_pressed"]
 [connection signal="pressed" from="Control/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="Control/ButtonQuit" to="." method="_on_button_quit_pressed"]

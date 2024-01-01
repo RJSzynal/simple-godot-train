@@ -18,3 +18,6 @@ func _on_button_5_pressed():
 
 func _on_button_6_pressed():
 	get_tree().change_scene_to_packed(load("res://Demo/Scenes/Levels/TestTracks6.tscn"))
+
+func _on_button_quit_pressed():
+	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)

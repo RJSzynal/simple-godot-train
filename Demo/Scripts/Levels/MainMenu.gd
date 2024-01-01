@@ -20,3 +20,7 @@ func _ready():
 		400,
 	)
 	add_child(train)
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		get_tree().quit() # default behavior

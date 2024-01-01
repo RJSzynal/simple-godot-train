@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bexmefj10xwqk"]
+
+[ext_resource type="PackedScene" uid="uid://npqq3emis8fp" path="res://Scenes/Track.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://df3k6ja8u3sp0" path="res://Demo/Scenes/TestWorld.tscn" id="3"]
+[ext_resource type="Script" path="res://Demo/Scripts/TestTracks1.gd" id="4"]
+
+[sub_resource type="Curve2D" id="1"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 320, -64, -192.565, 0.840896, 192.565, -0.840896, 544, -64, 0, 0, 0, 0, 736, 128, 0, 0, 0, 0, 736, 160, 192.565, 0, -192.565, 0, 544, 352, 190.883, 0, -190.883, 0, 0, 424, 0, 0, 0, 0, -192, 224, 0, 0, 0, 0, -192, 128, -191.724, 0.840896, 191.724, -0.840896, 0, -64, 0, 0, 0, 0, 320, -64)
+}
+point_count = 10
+
+[node name="TestTracks1" type="Node2D"]
+script = ExtResource("4")
+car_count = null
+
+[node name="TestWorld" parent="." instance=ExtResource("3")]
+
+[node name="Tracks" type="Node2D" parent="."]
+
+[node name="Track" parent="Tracks" instance=ExtResource("1")]
+position = Vector2(256, 128)
+curve = SubResource("1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
