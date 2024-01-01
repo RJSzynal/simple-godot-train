@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" path="res://Scripts/Track/Junction.gd" id="1_2sumt"]
 
-[sub_resource type="CircleShape2D" id="1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_quhik"]
+size = Vector2(50, 26)
 
 [node name="TrackJunction" type="Area2D" groups=["track_junctions"]]
+collision_mask = 3
 script = ExtResource("1_2sumt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("1")
+shape = SubResource("RectangleShape2D_quhik")
 
 [connection signal="area_entered" from="." to="." method="_on_TrackJunction_area_entered"]

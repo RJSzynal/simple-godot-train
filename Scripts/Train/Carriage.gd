@@ -18,13 +18,9 @@ enum CargoFamilies { NONE, PASSENGERS, AGGREGATE }
 
 # Physics
 @export var mass:float = 10
-@export var air_density:float = 1.0
-@export var velocity_multiplier:float = 1.5
-@export var brake_application_speed:int = 5
-@export var friction_coefficient:float = 0.1
-@export var rolling_resistance_coefficient:float = 0.005
-@export var air_resistance_coefficient:float = 0.10
-@export var max_brake_force:int = 2
+@export var friction_coefficient:float = 0.01
+@export var air_resistance_coefficient:float = 0.05
+@export var max_brake_force:int = 5
 @export var max_force:float = 0
 
 const bogie_scene: PackedScene = preload("res://Scenes/Train/Bogie.tscn")
@@ -54,7 +50,6 @@ func get_mass():
 func get_friction():
 	var gravity:float = PhysicsServer2D.AREA_PARAM_GRAVITY as float/100
 	var friction_force:float = friction_coefficient * get_mass() * gravity
-	friction_force += rolling_resistance_coefficient * get_mass() * gravity
 
 	return(friction_force)
 
@@ -95,16 +90,16 @@ func add_to_track(track:Path2D, progress = 1):
 
 func update_bogies():
 	var previous_bogie = null
+	var inter_bogie_distance = bogie_distance / (num_bogies - 1.0)
 	for bogie in bogies:
 		if previous_bogie:
-			bogie.follow(previous_bogie, bogie_distance / (num_bogies - 1.0))
+			bogie.follow(previous_bogie, inter_bogie_distance)
 		previous_bogie = bogie
-	set_global_position(get_front_bogie().global_position)
-	if body: body.look_at(get_back_bogie().global_position)
+	_update_sprite()
 
 # Follow another TrainCarriage
 func follow_car(other_car):
-	get_front_bogie().follow(other_car.get_back_bogie(), other_car.get_tail_length() + head_length)
+	get_front_bogie().follow(other_car.get_back_bogie(), other_car.get_tail_length() + get_head_length())
 	update_bogies()
 
 func get_follow_track():
@@ -112,5 +107,9 @@ func get_follow_track():
 
 # Move by some distance
 func move(distance:float):
-	get_front_bogie().move(distance)
-	update_bogies()
+	var previous_bogie = null
+	var inter_bogie_distance = bogie_distance / (num_bogies - 1.0)
+	for bogie in bogies:
+		bogie.move(distance)
+		if previous_bogie && previous_bogie.get_progress() - bogie.get_progress() != inter_bogie_distance:
+			bogie.follow(previous_bogie, inter_bogie_distance)

@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://lkkptry7yeic"]
+
+[ext_resource type="Script" path="res://Demo/Scripts/Levels/TestTracks2.gd" id="1_1llbs"]
+[ext_resource type="PackedScene" uid="uid://df3k6ja8u3sp0" path="res://Demo/Scenes/HUD.tscn" id="2_6lu5a"]
+[ext_resource type="PackedScene" uid="uid://npqq3emis8fp" path="res://Scenes/Track/Track.tscn" id="3_tqiq3"]
+
+[sub_resource type="Curve2D" id="8"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0.0965576, 84.6502, 0, -1, -189, 127, -127.786, 0, 127.786, 0, -61, -1, -128.512, 1.25992, 128.512, -1.25992, 611, -1, 0, 0, 0, 0, 739, 127, 0, 0, 0, 0, 739, 191)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="17"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 128, 0, -128, 32, 0, 0, 0, 0, 0, -96, 0, 0, 0, 0, 0, -256, 95.7503, 1.36284, -95.7503, -1.36284, -96, -352, 0, 0, 0, 0, -224, -352, 0, -94.8812, 0, 94.8812, -320, -256, 0, -96.6625, 0, 96.6625, -320, -96, 0, 0, 0, 0, -416, 0, 95, 0, -95, 0, -480, 0, 0, 0, 0, 0, -576, -96, 0, 0, 0, 0, -576, -288, -96.1969, 0.119193, 96.1969, -0.119193, -480, -384, -128.289, 0.890899, 128.289, -0.890899, -96, -384, 0, 0, 0, 0, 32, -256, 0, 0, 0, 0, 32, -224, -128, 0, 128, 0, 160, -96, 0, 30, -0.238935, -29.1511, 288, -224)
+}
+point_count = 17
+
+[sub_resource type="Curve2D" id="18"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -128, 0, -126.606, 0.529732, 0, 0, 0, 0, -126.606, 0.529732, 126.606, -0.529732, 160, 0, 0, 0, 0, 0, 288, -128, 0, 0, 0, 0, 288, -256)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="19"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 1, -63.9999, -64.0979, 0, 0, 0, 0, -63.9999, 128.196, -132.302, 0.88778, 132.302, -0.88778, 69.1469, 256.392, 0, 0, 0, 0, 468.587, 256.392)
+}
+point_count = 4
+
+[node name="TestTracks0" type="Node2D"]
+script = ExtResource("1_1llbs")
+
+[node name="HUD" parent="." instance=ExtResource("2_6lu5a")]
+
+[node name="Tracks" type="Node2D" parent="."]
+
+[node name="Track1" parent="Tracks" instance=ExtResource("3_tqiq3")]
+position = Vector2(253, 65)
+curve = SubResource("8")
+
+[node name="Track2" parent="Tracks" instance=ExtResource("3_tqiq3")]
+position = Vector2(704, 480)
+curve = SubResource("17")
+
+[node name="Track3" parent="Tracks" instance=ExtResource("3_tqiq3")]
+position = Vector2(704, 512)
+curve = SubResource("18")
+
+[node name="Track4" parent="Tracks" instance=ExtResource("3_tqiq3")]
+position = Vector2(125.526, 256)
+scale = Vector2(0.961345, 0.998473)
+curve = SubResource("19")

@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8vi0ln8g872b"]
+
+[ext_resource type="Script" path="res://Demo/Scripts/Levels/TestTracks3.gd" id="1_lqj22"]
+[ext_resource type="PackedScene" uid="uid://df3k6ja8u3sp0" path="res://Demo/Scenes/HUD.tscn" id="2_ixtxm"]
+[ext_resource type="PackedScene" uid="uid://npqq3emis8fp" path="res://Scenes/Track/Track.tscn" id="3_tadl8"]
+
+[sub_resource type="Curve2D" id="8"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 1, 0, 256, 0, -192.768, 0, 192.768, 0, 576, 0, 0, -1, 0, 1, 768, 192, 0, -1, 0, 1, 768, 256, 190.248, 0.629961, -190.248, 0, 576, 448, 1, 0, 0, 0, 384, 448)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="13"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, -65, 0, 132, 123, 0, 65, 0, 1, 0, 0, 0, 127.399, 0, -127.399, 0, -160, -1, 0, 1, 0, 128, -288, -128.022, 0, 128.022, 0, 320, -288, 0, -1, 0, 1, 448, -160, 0, -1, 0, 1, 448, -128, 127.961, 0, -127.961, 0, 320, 0, 128.195, -0.529732, -128.195, 0.529732, 0, -64, 0, 0, -65, 0, -256, -64, 0, 65, 0, 0, -380, -198)
+}
+point_count = 11
+
+[sub_resource type="Curve2D" id="15"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 1, -128, -320, 0, 0, 0, 0, -128, -128, -127.786, 0.39685, 127.786, -0.39685, 0, 0, -1, 0, 0, 0, 384, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="14"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, -1, -128, 128, -127.245, 0, 127.245, 0, 0, 0, -1, 0, 0, 0, 256, 0)
+}
+point_count = 3
+
+[node name="TestTracks3" type="Node2D"]
+script = ExtResource("1_lqj22")
+
+[node name="HUD" parent="." instance=ExtResource("2_ixtxm")]
+
+[node name="Tracks" type="Node2D" parent="."]
+
+[node name="Track1" parent="Tracks" instance=ExtResource("3_tadl8")]
+position = Vector2(192, 64)
+curve = SubResource("8")
+
+[node name="Track2" parent="Tracks" instance=ExtResource("3_tadl8")]
+position = Vector2(444, 389)
+curve = SubResource("13")
+
+[node name="Track3" parent="Tracks" instance=ExtResource("3_tadl8")]
+position = Vector2(192, 512)
+curve = SubResource("15")
+
+[node name="Track4" parent="Tracks" instance=ExtResource("3_tadl8")]
+position = Vector2(192, 64)
+curve = SubResource("14")

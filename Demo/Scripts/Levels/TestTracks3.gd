@@ -10,12 +10,12 @@ func _ready():
 	for i in range(car_count):
 		train_layout.append(CarriageTypes.PASSENGER)
 
+	await get_tree().create_timer(1).timeout
 	train = train_vehicle_scene.instantiate()
 	train.initialise(
 		'Train0',
-		$Tracks/Track,
+		$Tracks/Track1,
 		train_layout,
-		500,
 	)
 	add_child(train)
 	train.connect("train_info", Callable($HUD, "update_train_info"))

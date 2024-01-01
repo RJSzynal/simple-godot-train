@@ -21,7 +21,7 @@ func _ready():
 	$CanvasLayer/Control/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/PanelContainer/VBoxContainer/InfoButton.focus_mode = Control.FOCUS_NONE
 
 func _on_Button_pressed():
-	get_tree().change_scene_to_packed(load("res://Demo/Scenes/Game.tscn"))
+	get_tree().change_scene_to_packed(load("res://Demo/Scenes/Levels/MainMenu.tscn"))
 
 func update_train_info(info):
 	throttle_label.text = "%0.1f%%" % (info["throttle"]*100)

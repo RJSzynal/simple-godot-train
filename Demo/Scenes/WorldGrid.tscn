@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://drwihmnlmdcel"]
+
+[ext_resource type="Texture2D" uid="uid://b3q6eshi4eblk" path="res://Demo/Assets/grid.png" id="1_hfvpl"]
+
+[node name="WorldGrid" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -5521.0
+offset_top = -4644.0
+offset_right = 22162.0
+offset_bottom = 4927.0
+texture = ExtResource("1_hfvpl")
+stretch_mode = 1

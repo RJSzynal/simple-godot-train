@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2rsbiqsb85ru"]
+
+[ext_resource type="Script" path="res://Scripts/Track/Switch2.gd" id="1_ex60t"]
+[ext_resource type="Texture2D" uid="uid://bxf3ejbfu2ys5" path="res://Demo/Assets/switch_right.png" id="4_78gw8"]
+[ext_resource type="Texture2D" uid="uid://cymgfy1pekddc" path="res://Demo/Assets/switch_left.png" id="5_5hwtg"]
+
+[sub_resource type="Theme" id="Theme_h5rlm"]
+CheckButton/icons/checked = ExtResource("4_78gw8")
+CheckButton/icons/unchecked = ExtResource("5_5hwtg")
+
+[node name="TrackSwitch" type="Node2D"]
+script = ExtResource("1_ex60t")
+
+[node name="Button" type="CheckButton" parent="."]
+offset_left = -38.0
+offset_top = -73.0
+offset_right = 38.0
+offset_bottom = -25.0
+rotation = 1.5708
+pivot_offset = Vector2(38, 24)
+focus_mode = 0
+theme = SubResource("Theme_h5rlm")
+button_pressed = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

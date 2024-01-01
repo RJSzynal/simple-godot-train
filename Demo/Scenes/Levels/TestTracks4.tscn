@@ -1,0 +1,191 @@
+[gd_scene load_steps=20 format=3 uid="uid://d2sdh8ikyuujr"]
+
+[ext_resource type="Script" path="res://Demo/Scripts/Levels/TestTracks4.gd" id="1_3fkf3"]
+[ext_resource type="PackedScene" uid="uid://df3k6ja8u3sp0" path="res://Demo/Scenes/HUD.tscn" id="3_86p2r"]
+[ext_resource type="Texture2D" uid="uid://dpdn3ysmpioo" path="res://Demo/Assets/godot.png" id="4_sldlu"]
+[ext_resource type="PackedScene" uid="uid://mjxleghpds6e" path="res://Demo/Scenes/Station.tscn" id="5_6kkfm"]
+[ext_resource type="PackedScene" uid="uid://npqq3emis8fp" path="res://Scenes/Track/Track.tscn" id="6_cs0ja"]
+
+[sub_resource type="Curve2D" id="1"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 19, 1, -254.799, 0, 254.799, 0, 275, 1, -255.318, -0.471937, 255.318, 0.471937, 1811, 129, 0, 0, 0, 0, 2067, 129)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="2"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, -255.36, 1.12246, 255.36, -1.12246, 256, 0, -254.601, -0.419968, 254.601, 0.419968, 1792, 128, 0, 0, 0, 0, 2048, 128, -1, 0, 0, 0, 2304, 128)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="16"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 528, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="17"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 512, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="26"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, -256.96, -0.749154, 256.96, 0.749154, 448, 0, 0, 0, 0, 0, 704, 256, 0, 0, 0, 0, 704, 456, 0, 0, 0, 0, 704, 640, 253.984, 0.7937, -253.984, -0.7937, 448, 896, 0, 0, 0, 0, 136, 896)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="27"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -128, 0, 0, 0, 0, 0, 264, 0, -193.04, 0, 193.04, 0, 576, 0, 0, 0, 0, 0, 768, 192, 190.652, -0.890899, -190.652, 0.890899, 576, 384, 256.211, 0.749154, -256.211, -0.749154, 128, 384, 255.688, 0, -255.688, 0, -1088, 64, 0, 0, 0, 0, -1344, 64, 1, 0, 0, 0, -2304, 64)
+}
+point_count = 9
+
+[sub_resource type="Curve2D" id="32"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1600, -1024, 319.068, -0.7937, -319.068, 0.7937, -1920, -1024, 0, 0, 0, 0, -2240, -704, 0, 0, 0, 0, -2240, -320, -318.051, -0.890899, 318.051, 0.890899, -1920, 0, -384.868, 0, 384.868, 0, -1400, 0, -258.361, 0, 258.361, 0, -752, -56, 0, 0, 0, 0, -488, -56, -343.596, 0.635903, 343.596, -0.635903, -80, -56, -271.266, 1.7818, 271.266, -1.7818, 536, 0, 0, 0, 0, 0, 808, 0)
+}
+point_count = 11
+
+[sub_resource type="Curve2D" id="33"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 65, 0, -1088, -704, -65, 0, 0, 0, -896, -640, -384.264, -0.0722988, 384.264, 0.0722988, -512, -640, -311.567, 0.840896, 311.567, -0.840896, 512, 0, 0, 0, 65, 0, 1288, 0, -65, 0, 0, 0, 1480, 64)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="38"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -384, -192, 190.663, 0.943874, -190.663, -0.943874, -768, -192, 0, 0, 0, 0, -960, 0, -184.055, 0, 184.055, 0, -768, 192, -188.775, 0, 188.775, 0, -576, 192, -191.606, -4.71937, 191.606, 4.71937, -192, 0, -1, 0, 0, 0, 256, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="43"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 65, 0, -288, 0, -65, 0, 65, 0, 512, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="44"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 65, 0, -288, -32, -65, 0, 0, 0, -160, 0, 0, 0, 0, 0, 864, 0, -0.66742, 279.649, 0.66742, -279.649, 1152, -280, 0, 0, 0, 0, 1152, -728, 319.861, 0.7937, -319.861, -0.7937, 832, -1048, 0, 0, -65, 0, 192, -1048, 65, 0, 0, 0, -121, -928)
+}
+point_count = 8
+
+[sub_resource type="Curve2D" id="49"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -120, 0, 0, 0, 0, 0, 376, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_2svys"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 65, 0, 0, 0, -65, 0, 0, 0, 256, 64)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_3h0ly"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 65, 0, 0, 64, -65, 0, 0, 0, 256, 0)
+}
+point_count = 2
+
+[node name="TestTracks4" type="Node2D"]
+script = ExtResource("1_3fkf3")
+
+[node name="HUD" parent="." instance=ExtResource("3_86p2r")]
+allows_camera_control = true
+
+[node name="Tracks" type="Node2D" parent="."]
+
+[node name="Track1" parent="Tracks" instance=ExtResource("6_cs0ja")]
+position = Vector2(309, 319)
+curve = SubResource("1")
+
+[node name="Track2" parent="Tracks" instance=ExtResource("6_cs0ja")]
+position = Vector2(328, 384)
+curve = SubResource("2")
+
+[node name="Track3" parent="Tracks" instance=ExtResource("6_cs0ja")]
+position = Vector2(2376, 448)
+curve = SubResource("16")
+
+[node name="Track4" parent="Tracks" instance=ExtResource("6_cs0ja")]
+position = Vector2(2632, 512)
+curve = SubResource("17")
+
+[node name="Track5" parent="Tracks" instance=ExtResource("6_cs0ja")]
+position = Vector2(3400, 448)
+curve = SubResource("26")
+
+[node name="Track6" parent="Tracks" instance=ExtResource("6_cs0ja")]
+position = Vector2(3272, 512)
+curve = SubResource("27")
+
+[node name="Track7" parent="Tracks" instance=ExtResource("6_cs0ja")]
+position = Vector2(1928, 1344)
+curve = SubResource("32")
+
+[node name="Track8" parent="Tracks" instance=ExtResource("6_cs0ja")]
+position = Vector2(2056, 1280)
+curve = SubResource("33")
+
+[node name="Track9" parent="Tracks" instance=ExtResource("6_cs0ja")]
+position = Vector2(712, 576)
+curve = SubResource("38")
+
+[node name="Track10" parent="Tracks" instance=ExtResource("6_cs0ja")]
+position = Vector2(3024, 1344)
+curve = SubResource("43")
+
+[node name="Track11" parent="Tracks" instance=ExtResource("6_cs0ja")]
+position = Vector2(3024, 1376)
+curve = SubResource("44")
+
+[node name="Track12" parent="Tracks" instance=ExtResource("6_cs0ja")]
+position = Vector2(3024, 448)
+curve = SubResource("49")
+
+[node name="Track13" parent="Tracks" instance=ExtResource("6_cs0ja")]
+position = Vector2(2376, 448)
+curve = SubResource("Curve2D_2svys")
+
+[node name="Track14" parent="Tracks" instance=ExtResource("6_cs0ja")]
+position = Vector2(3144, 448)
+curve = SubResource("Curve2D_3h0ly")
+
+[node name="Godot" type="Sprite2D" parent="."]
+position = Vector2(3824, 712)
+scale = Vector2(3, 3)
+texture = ExtResource("4_sldlu")
+
+[node name="Godot2" type="Sprite2D" parent="."]
+position = Vector2(-48, 1096)
+scale = Vector2(3, 3)
+texture = ExtResource("4_sldlu")
+
+[node name="Station" parent="." instance=ExtResource("5_6kkfm")]
+position = Vector2(1760, 368)
+rotation = 0.0872665
+
+[node name="Station2" parent="." instance=ExtResource("5_6kkfm")]
+position = Vector2(1496, 344)
+rotation = 0.0872665
+
+[node name="Station3" parent="." instance=ExtResource("5_6kkfm")]
+position = Vector2(1232, 320)
+rotation = 0.0872665

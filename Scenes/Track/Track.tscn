@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://npqq3emis8fp"]
+[gd_scene load_steps=12 format=3 uid="uid://npqq3emis8fp"]
 
 [ext_resource type="Script" path="res://Scripts/Track/Track.gd" id="1_lefyp"]
 [ext_resource type="Texture2D" uid="uid://de408o2kge2ij" path="res://Demo/Assets/crosstie.png" id="2_pwu6q"]
 [ext_resource type="PackedScene" uid="uid://rtmytihb6tps" path="res://Scenes/Track/Junction.tscn" id="3_3fl08"]
 [ext_resource type="Texture2D" uid="uid://byy06tv4y101x" path="res://Demo/Assets/track.png" id="4_nnpfv"]
+[ext_resource type="Texture2D" uid="uid://c3fhkuwvc3bme" path="res://Demo/Assets/arrow_one_way.png" id="6_ra8mv"]
+[ext_resource type="Texture2D" uid="uid://dfg3msajrk3ww" path="res://Demo/Assets/arrow_one_way_disabled.png" id="7_sonf4"]
 
 [sub_resource type="Curve2D" id="1"]
 resource_local_to_scene = true
@@ -31,6 +33,12 @@ instance_count = 26
 mesh = SubResource("7")
 buffer = PackedFloat32Array(1, 0, 0, 5, 0, 1, 0, 0, 1, 0, 0, 15, 0, 1, 0, 0, 1, 0, 0, 25, 0, 1, 0, 0, 1, 0, 0, 35, 0, 1, 0, 0, 1, 0, 0, 45, 0, 1, 0, 0, 1, 0, 0, 55, 0, 1, 0, 0, 1, 0, 0, 65, 0, 1, 0, 0, 1, 0, 0, 75, 0, 1, 0, 0, 1, 0, 0, 85, 0, 1, 0, 0, 1, 0, 0, 95, 0, 1, 0, 0, 1, 0, 0, 105, 0, 1, 0, 0, 1, 0, 0, 115, 0, 1, 0, 0, 1, 0, 0, 125, 0, 1, 0, 0, 1, 0, 0, 135, 0, 1, 0, 0, 1, 0, 0, 145, 0, 1, 0, 0, 1, 0, 0, 155, 0, 1, 0, 0, 1, 0, 0, 165, 0, 1, 0, 0, 1, 0, 0, 175, 0, 1, 0, 0, 1, 0, 0, 185, 0, 1, 0, 0, 1, 0, 0, 195, 0, 1, 0, 0, 1, 0, 0, 205, 0, 1, 0, 0, 1, 0, 0, 215, 0, 1, 0, 0, 1, 0, 0, 225, 0, 1, 0, 0, 1, 0, 0, 235, 0, 1, 0, 0, 1, 0, 0, 245, 0, 1, 0, 0, 1, 0, 0, 255, 0, 1, 0, 0)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ir1jg"]
+b = Vector2(0, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qv0bp"]
+b = Vector2(0, 0)
+
 [node name="Track" type="Path2D"]
 curve = SubResource("1")
 script = ExtResource("1_lefyp")
@@ -53,8 +61,7 @@ z_as_relative = false
 loop = false
 
 [node name="TrackJunction" parent="HeadPoint" instance=ExtResource("3_3fl08")]
-parent = NodePath("../..")
-side = "head"
+end = "head"
 
 [node name="TailPoint" type="PathFollow2D" parent="."]
 z_index = 3
@@ -64,8 +71,8 @@ progress = 256.0
 loop = false
 
 [node name="TrackJunction" parent="TailPoint" instance=ExtResource("3_3fl08")]
-parent = NodePath("../..")
-side = "tail"
+rotation = 3.14159
+end = "tail"
 
 [node name="Line2D" type="Line2D" parent="."]
 z_index = 2
@@ -73,3 +80,60 @@ points = PackedVector2Array(0, 0, 2.875, 0, 6.32813, 0, 11, 0, 13.7637, 0, 16.79
 width = 20.0
 texture = ExtResource("4_nnpfv")
 texture_mode = 1
+
+[node name="TailArrow" type="PathFollow2D" parent="."]
+z_index = 2
+position = Vector2(176.003, 0)
+progress = 176.0
+
+[node name="ButtonTailPrimary" type="TextureButton" parent="TailArrow"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_sonf4")
+texture_disabled = ExtResource("6_ra8mv")
+stretch_mode = 3
+
+[node name="Area2DTailArrow" type="Area2D" parent="TailArrow"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TailArrow/Area2DTailArrow"]
+shape = SubResource("SegmentShape2D_ir1jg")
+
+[node name="HeadArrow" type="PathFollow2D" parent="."]
+z_index = 2
+position = Vector2(79.9972, 0)
+progress = 80.0
+
+[node name="ButtonHeadPrimary" type="TextureButton" parent="HeadArrow"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.99039
+offset_top = 7.0
+offset_right = 29.9904
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.14159
+texture_normal = ExtResource("7_sonf4")
+texture_disabled = ExtResource("6_ra8mv")
+stretch_mode = 3
+
+[node name="Area2DHeadArrow" type="Area2D" parent="HeadArrow"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadArrow/Area2DHeadArrow"]
+shape = SubResource("SegmentShape2D_qv0bp")
+
+[connection signal="property_list_changed" from="." to="." method="_on_property_list_changed"]
+[connection signal="pressed" from="TailArrow/ButtonTailPrimary" to="." method="_on_button_tail_primary_pressed"]
+[connection signal="area_entered" from="TailArrow/Area2DTailArrow" to="." method="_on_area_2d_tail_arrow_area_entered"]
+[connection signal="pressed" from="HeadArrow/ButtonHeadPrimary" to="." method="_on_button_head_primary_pressed"]
+[connection signal="area_entered" from="HeadArrow/Area2DHeadArrow" to="." method="_on_area_2d_head_arrow_area_entered"]
