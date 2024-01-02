@@ -1,9 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://n33xqm2cj3nd"]
+[gd_scene load_steps=10 format=3 uid="uid://n33xqm2cj3nd"]
 
 [ext_resource type="Script" path="res://Demo/Scripts/Levels/MainMenu.gd" id="1_ab7he"]
-[ext_resource type="PackedScene" uid="uid://drwihmnlmdcel" path="res://Demo/Scenes/WorldGrid.tscn" id="2_kkqdn"]
 [ext_resource type="PackedScene" uid="uid://npqq3emis8fp" path="res://Scenes/Track/Track.tscn" id="3_5imfp"]
-[ext_resource type="PackedScene" uid="uid://du5rukrtpc18i" path="res://Demo/Scenes/MainMenuHUD.tscn" id="4_1mown"]
 [ext_resource type="Texture2D" uid="uid://dpdn3ysmpioo" path="res://Demo/Assets/godot.png" id="5_3jb2j"]
 
 [sub_resource type="Curve2D" id="17"]
@@ -48,11 +46,9 @@ _data = {
 }
 point_count = 5
 
-[node name="Game" type="Node"]
+[node name="MainMenu" type="Node"]
+process_mode = 1
 script = ExtResource("1_ab7he")
-
-[node name="WorldGrid" parent="." instance=ExtResource("2_kkqdn")]
-position = Vector2(-64, -20)
 
 [node name="Tracks" type="Node2D" parent="."]
 
@@ -82,12 +78,7 @@ curve = SubResource("13")
 position = Vector2(-243, 350)
 curve = SubResource("16")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("4_1mown")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-
 [node name="Godot" type="Sprite2D" parent="."]
-position = Vector2(241, 425)
+position = Vector2(1103, 471)
 scale = Vector2(1.8125, 1.625)
 texture = ExtResource("5_3jb2j")

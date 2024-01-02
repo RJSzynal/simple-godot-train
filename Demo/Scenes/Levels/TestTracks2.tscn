@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://lkkptry7yeic"]
+[gd_scene load_steps=7 format=3 uid="uid://lkkptry7yeic"]
 
 [ext_resource type="Script" path="res://Demo/Scripts/Levels/TestTracks2.gd" id="1_1llbs"]
-[ext_resource type="PackedScene" uid="uid://df3k6ja8u3sp0" path="res://Demo/Scenes/HUD.tscn" id="2_6lu5a"]
 [ext_resource type="PackedScene" uid="uid://npqq3emis8fp" path="res://Scenes/Track/Track.tscn" id="3_tqiq3"]
 
 [sub_resource type="Curve2D" id="8"]
@@ -14,7 +13,7 @@ point_count = 5
 [sub_resource type="Curve2D" id="17"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 128, 0, -128, 32, 0, 0, 0, 0, 0, -96, 0, 0, 0, 0, 0, -256, 95.7503, 1.36284, -95.7503, -1.36284, -96, -352, 0, 0, 0, 0, -224, -352, 0, -94.8812, 0, 94.8812, -320, -256, 0, -96.6625, 0, 96.6625, -320, -96, 0, 0, 0, 0, -416, 0, 95, 0, -95, 0, -480, 0, 0, 0, 0, 0, -576, -96, 0, 0, 0, 0, -576, -288, -96.1969, 0.119193, 96.1969, -0.119193, -480, -384, -128.289, 0.890899, 128.289, -0.890899, -96, -384, 0, 0, 0, 0, 32, -256, 0, 0, 0, 0, 32, -224, -128, 0, 128, 0, 160, -96, 0, 30, -0.238935, -29.1511, 288, -224)
+"points": PackedVector2Array(0, 0, 128, 0, -128, 32, 0, 0, 0, 0, 0, -96, 0, 0, 0, 0, 0, -256, 95.75, 0, -95.75, 0, -96, -352, 0, 0, 0, 0, -224, -352, 0, -94.8812, 0, 94.8812, -320, -256, 0, -96.6625, 0, 96.6625, -320, -96, 1, 0, -1, 0, -416, 0, 1, 0, -95, 0, -480, 0, 0, 1, 0, -1, -576, -96, 0, 1, 0, -1, -576, -288, -96.197, 0, 96.197, 0, -480, -384, -128.289, 0, 128.289, 0, -96, -384, 0, -1, 0, 1, 32, -256, 0, -1, 0, 1, 32, -224, -128, 0, 128, 0, 160, -96, 0, 30, -0.238935, -29.1511, 288, -224)
 }
 point_count = 17
 
@@ -32,12 +31,12 @@ _data = {
 }
 point_count = 4
 
-[node name="TestTracks0" type="Node2D"]
+[node name="TestTracks2" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_1llbs")
 
-[node name="HUD" parent="." instance=ExtResource("2_6lu5a")]
-
 [node name="Tracks" type="Node2D" parent="."]
+position = Vector2(131, 52)
 
 [node name="Track1" parent="Tracks" instance=ExtResource("3_tqiq3")]
 position = Vector2(253, 65)

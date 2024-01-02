@@ -1,22 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bexmefj10xwqk"]
+[gd_scene load_steps=4 format=3 uid="uid://bexmefj10xwqk"]
 
 [ext_resource type="Script" path="res://Demo/Scripts/Levels/TestTracks1.gd" id="1_dqc4y"]
-[ext_resource type="PackedScene" uid="uid://df3k6ja8u3sp0" path="res://Demo/Scenes/HUD.tscn" id="2_1fm7m"]
 [ext_resource type="PackedScene" uid="uid://npqq3emis8fp" path="res://Scenes/Track/Track.tscn" id="3_kc8r7"]
 
 [sub_resource type="Curve2D" id="1"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 320, -64, -192.565, 0.840896, 192.565, -0.840896, 544, -64, 0, 0, 0, 0, 736, 128, 0, 0, 0, 0, 736, 160, 192.565, 0, -192.565, 0, 544, 352, 190.883, 0, -190.883, 0, 0, 424, 0, 0, 0, 0, -192, 224, 0, 0, 0, 0, -192, 128, -191.724, 0.840896, 191.724, -0.840896, 0, -64, 0, 0, 0, 0, 320, -64)
+"points": PackedVector2Array(0, 0, 0, 0, 320, -64, -192.565, 0.840896, 192.565, -0.840896, 544, -64, 0, -1, 0, 1, 736, 128, 0, -1, 0, 1, 736, 160, 192.565, 0, -192.565, 0, 544, 352, 190.883, 0, -190.883, 0, 0, 424, 0, 0, 0, 0, -192, 224, 0, 0, 0, 0, -192, 128, -191.724, 0.840896, 191.724, -0.840896, 0, -64, 0, 0, 0, 0, 320, -64)
 }
 point_count = 10
 
 [node name="TestTracks1" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_dqc4y")
 
-[node name="HUD" parent="." instance=ExtResource("2_1fm7m")]
-
 [node name="Tracks" type="Node2D" parent="."]
+position = Vector2(135, 78)
 
 [node name="Track1" parent="Tracks" instance=ExtResource("3_kc8r7")]
 position = Vector2(256, 128)

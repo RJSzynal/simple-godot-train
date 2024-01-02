@@ -1,0 +1,114 @@
+[gd_scene load_steps=6 format=3 uid="uid://barygde0b2kcc"]
+
+[ext_resource type="Theme" uid="uid://bdae218hxrhbu" path="res://Demo/Resources/UITheme.tres" id="1_fpdbs"]
+[ext_resource type="Script" path="res://Demo/Scripts/UI/MainMenu.gd" id="2_6f16w"]
+[ext_resource type="FontFile" uid="uid://d32b7pvjk5d7s" path="res://Demo/Assets/DePixelSchmal.ttf" id="2_egjq8"]
+[ext_resource type="FontFile" path="res://Demo/Assets/font.tres" id="3_hkb0h"]
+
+[sub_resource type="FontFile" id="14"]
+fallbacks = Array[Font]([ExtResource("2_egjq8")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1280.0
+offset_bottom = -720.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+mouse_filter = 2
+theme = ExtResource("1_fpdbs")
+script = ExtResource("2_6f16w")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 220.0
+offset_bottom = 39.0
+pivot_offset = Vector2(139, 14)
+theme = ExtResource("1_fpdbs")
+theme_override_fonts/font = SubResource("14")
+text = "2D Train Sim Demo"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 220.0
+offset_bottom = 154.0
+theme_override_constants/separation = 20
+
+[node name="TrackSelectionLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_fpdbs")
+theme_override_fonts/font = ExtResource("3_hkb0h")
+text = "Select a Track"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Button1" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Track 1"
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Track 2"
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Track 3"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Track 4"
+
+[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Track 5"
+
+[node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Track 6"
+
+[node name="ButtonQuit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Footer" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 325.0
+offset_right = 531.0
+offset_bottom = 344.0
+theme = ExtResource("1_fpdbs")
+theme_override_colors/font_color = Color(0.670588, 0.670588, 0.670588, 1)
+text = "Moonbench Games 2023"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]

@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8vi0ln8g872b"]
+[gd_scene load_steps=7 format=3 uid="uid://c8vi0ln8g872b"]
 
 [ext_resource type="Script" path="res://Demo/Scripts/Levels/TestTracks3.gd" id="1_lqj22"]
-[ext_resource type="PackedScene" uid="uid://df3k6ja8u3sp0" path="res://Demo/Scenes/HUD.tscn" id="2_ixtxm"]
 [ext_resource type="PackedScene" uid="uid://npqq3emis8fp" path="res://Scenes/Track/Track.tscn" id="3_tadl8"]
 
 [sub_resource type="Curve2D" id="8"]
@@ -33,11 +32,11 @@ _data = {
 point_count = 3
 
 [node name="TestTracks3" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_lqj22")
 
-[node name="HUD" parent="." instance=ExtResource("2_ixtxm")]
-
 [node name="Tracks" type="Node2D" parent="."]
+position = Vector2(147, 41)
 
 [node name="Track1" parent="Tracks" instance=ExtResource("3_tadl8")]
 position = Vector2(192, 64)

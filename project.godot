@@ -13,20 +13,15 @@ config_version=5
 config/name="2D Train Simulator"
 config/description="For Godot version 4.2"
 config/tags=PackedStringArray("2d", "demo")
-run/main_scene="res://Demo/Scenes/Levels/MainMenu.tscn"
+run/main_scene="res://Demo/Scenes/Game.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://icon.png"
-
-[autoload]
-
-Enums="*res://Scripts/Enums.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/mode=3
-window/size/borderless=true
 window/stretch/mode="viewport"
 
 [global]

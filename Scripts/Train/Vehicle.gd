@@ -4,7 +4,7 @@ extends Node2D
 
 signal train_info
 
-const CarriageTypes = preload("res://Scripts/Enums.gd").CarriageTypes
+enum CarriageTypes { ENGINE, PASSENGER }
 
 const carriage_scene:Dictionary = {
 	CarriageTypes.ENGINE: preload("res://Scenes/Train/Engine.tscn"),

@@ -1,11 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://dxwrqmjjk2t1i"]
+[gd_scene load_steps=32 format=3 uid="uid://dxwrqmjjk2t1i"]
 
 [ext_resource type="PackedScene" uid="uid://npqq3emis8fp" path="res://Scenes/Track/Track.tscn" id="1"]
-[ext_resource type="PackedScene" uid="uid://df3k6ja8u3sp0" path="res://Demo/Scenes/HUD.tscn" id="3"]
 [ext_resource type="Script" path="res://Demo/Scripts/Levels/TestTracks5.gd" id="5"]
 [ext_resource type="Texture2D" uid="uid://dpdn3ysmpioo" path="res://Demo/Assets/godot.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://dc3hx0quh4c1g" path="res://Demo/Assets/warn.png" id="8"]
-[ext_resource type="PackedScene" uid="uid://mjxleghpds6e" path="res://Demo/Scenes/Station.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://mjxleghpds6e" path="res://Scenes/Track/Station.tscn" id="9"]
 
 [sub_resource type="Curve2D" id="1"]
 resource_local_to_scene = true
@@ -190,10 +189,8 @@ _data = {
 point_count = 2
 
 [node name="TestTracks5" type="Node2D"]
+process_mode = 1
 script = ExtResource("5")
-
-[node name="HUD" parent="." instance=ExtResource("3")]
-allows_camera_control = true
 
 [node name="Tracks" type="Node2D" parent="."]
 

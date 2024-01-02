@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://y2lceph7ylk2"]
+
+[ext_resource type="PackedScene" uid="uid://n33xqm2cj3nd" path="res://Demo/Scenes/Levels/MainMenu.tscn" id="1_40gn1"]
+[ext_resource type="Script" path="res://Demo/Scripts/GameManager.gd" id="1_hyvei"]
+[ext_resource type="PackedScene" uid="uid://bs8yabg17l3m8" path="res://Demo/Scenes/UI/PauseMenu.tscn" id="2_d4w5i"]
+[ext_resource type="PackedScene" uid="uid://cg1qbfu8rfw5p" path="res://Demo/Scenes/UI/LoadingScreen.tscn" id="3_7ynp2"]
+[ext_resource type="PackedScene" uid="uid://o1pv3n07kvtm" path="res://Demo/Scenes/UI/TrainData.tscn" id="5_54rqc"]
+[ext_resource type="PackedScene" uid="uid://barygde0b2kcc" path="res://Demo/Scenes/UI/MainMenu.tscn" id="6_cnb81"]
+[ext_resource type="PackedScene" uid="uid://drwihmnlmdcel" path="res://Demo/Scenes/WorldGrid.tscn" id="7_g6ibu"]
+
+[node name="GameManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_hyvei")
+
+[node name="WorldGrid" parent="." instance=ExtResource("7_g6ibu")]
+
+[node name="MainMenu" parent="." instance=ExtResource("1_40gn1")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="MainMenu" parent="CanvasLayer" instance=ExtResource("6_cnb81")]
+
+[node name="TrainData" parent="CanvasLayer" instance=ExtResource("5_54rqc")]
+visible = false
+
+[node name="PauseMenu" parent="CanvasLayer" node_paths=PackedStringArray("game_manager") instance=ExtResource("2_d4w5i")]
+game_manager = NodePath("../..")
+
+[node name="LoadingScreen" parent="CanvasLayer" node_paths=PackedStringArray("game_manager") instance=ExtResource("3_7ynp2")]
+visible = false
+game_manager = NodePath("../..")
+
+[connection signal="level_ready" from="MainMenu" to="." method="_on_level_ready"]
+[connection signal="button_pressed" from="CanvasLayer/MainMenu" to="." method="_on_main_menu_button_pressed"]
+[connection signal="train_info_toggled" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_train_info_toggled"]

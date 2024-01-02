@@ -5,9 +5,10 @@
 [node name="WorldGrid" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -5521.0
-offset_top = -4644.0
-offset_right = 22162.0
-offset_bottom = 4927.0
+offset_left = -7158.0
+offset_top = -6059.0
+offset_right = 21347.0
+offset_bottom = 4857.0
+mouse_filter = 2
 texture = ExtResource("1_hfvpl")
 stretch_mode = 1
